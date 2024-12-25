@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Contact form</title>
+</head>
+
+<body>
+  <div class="container">
+    <form action="" id="contactForm" aria-live="assertive">
+      <h2>Contact us</h2>
+      <div class="row">
+        <div class="inp">
+          <label for="firstName">First Name <span>*</span></label>
+          <input type="text" id="firstName" tabindex="0" aria-required="true">
+          <p class="error" aria-live="polite">This field is required</p>
+
+        </div>
+        <div class="inp">
+          <label for="lastName">Last Name <span>*</span></label>
+          <input type="text" id="lastName" tabindex="0" aria-required="true">
+          <p class="error" aria-live="polite">This field is required</p>
+        </div>
+      </div>
+      <div class="inp">
+        <label for="email">Email Address <span>*</span></label>
+        <input type="email" id="email" tabindex="0" aria-required="true">
+        <p class="error" aria-live="polite">Please enter a valid email address</p>
+      </div>
+      <div class="inp">
+        <label>Query Type <span>*</span></label>
+        <div class="radio-btns">
+          <div class="row">
+            <label class="custom-radio ch-q" tabindex="0">
+              <input type="radio" name="queryType" id="general" value="general">
+              <span></span>General Enquiry
+            </label>
+            <label class="custom-radio ch-q" tabindex="0">
+              <input type="radio" name="queryType" id="support" value="support">
+              <span></span>Support Request
+            </label>
+          </div>
+          <p class="error" aria-live="polite">Please select a query type</p>
+        </div>
+      </div>
+
+      <div class="inp">
+        <label for="msg">Message <span>*</span></label>
+        <textarea name="msg" id="msg" rows="5" cols="12" maxlength="300" wrap="soft" aria-required="true"></textarea>
+        <p class="error" aria-live="polite">This field is required</p>
+
+      </div>
+      <label class="ch" for="consent" tabindex="0">
+        <input type="checkbox" name="consent" id="consent">
+        <span></span>
+        I consent to being contacted by the team
+      </label>
+      <p class="error" aria-live="polite">To submit this form, please consent to being contacted</p>
+
+      <button type="submit" tabindex="0">Submit</button>
+    </form>
+    <div id="toast" class="toast" tabindex="-1">
+
+      <div class="toastHeader" role="alert" aria-live="assertive">
+        <img src="./assets/images/icon-success-check.svg" alt="check icon">
+        <h5>Message Sent!</h5>
+      </div>
+      <p>Thanks for completing the form. we'll be in touch soon!</p>
+
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#"></a>.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+@font-face {
+  font-family: "karla";
+  src: url(assets/fonts/Karla-VariableFont_wght.ttf);
+}
+* {
+  font-family: "karla";
+  --Red: hsl(0, 66%, 54%);
+  --primary-light: hsl(148, 38%, 91%);
+  --primary-medium: hsl(169, 82%, 27%);
+  --neutral-white: hsl(0, 0%, 100%);
+  --neutral-grey-medium: hsl(168, 15%, 59%);
+  --neutral-grey-darker: hsl(187, 24%, 22%);
+  --error-color: hsl(0, 66%, 54%);
+  --error-background: hsl(0, 100%, 96%);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+span {
+  color: var(--primary-medium);
+}
+.inp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+body {
+  background: var(--primary-light);
+}
+form {
+  width: 55vw;
+  margin: 25px auto;
+  padding: 2rem 3rem;
+  display: flex;
+  gap: 10px;
+  background: var(--neutral-white);
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.inp > input[type="text"],
+.inp > input[type="email"] {
+  height: 30px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  color: var(--neutral-grey-darker);
+  border: 1px solid #000;
+  /* margin-bottom: 1rem; */
+  border: 0.02rem solid var(--neutral-grey-medium);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+input[type="text"]:hover,
+input[type="text"]:focus,
+input[type="text"]:active,
+input[type="email"]:hover,
+input[type="email"]:focus,
+input[type="email"]:active,
+textarea:hover,
+textarea:focus,
+textarea:active {
+  border-color: var(--primary-medium);
+  cursor: grabbing;
+  outline: 1px solid var(--primary-medium);
+}
+label {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--neutral-grey-darker);
+}
+
+.ch-q {
+  border: 0.01rem solid var(--neutral-grey-medium);
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ch-q:hover {
+  border-color: var(--primary-medium);
+  background-color: var(--primary-light);
+  cursor: grabbing;
+  outline: none;
+}
+.custom-radio input[type="radio"] {
+  display: none;
+}
+.custom-radio span {
+  width: 15px;
+  height: 15px;
+  border: 2px solid var(--primary-medium);
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+.custom-radio input[type="radio"]:checked + span::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-medium);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+textarea {
+  all: unset;
+  border: 0.01rem solid var(--neutral-grey-medium);
+  border-radius: 10px;
+  padding: 10px;
+  /* margin-bottom: 2rem; */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow: auto;
+}
+.ch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 5px;
+  font-size: 16px;
+}
+.ch input[type="checkbox"] {
+  display: none;
+}
+.ch span {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--neutral-grey-medium);
+  display: inline-block;
+  position: relative;
+  transition: all 300ms ease;
+}
+.ch input[type="checkbox"]:checked + span {
+  background: var(--primary-medium);
+}
+.ch span::before {
+  content: "";
+  width: 5px;
+  height: 10px;
+  border: solid var(--neutral-white);
+  border-width: 0 3px 3px 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0);
+  transition: transform 0.3s ease;
+}
+.ch input[type="checkbox"]:checked + span::before {
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+button {
+  all: unset;
+  padding: 10px;
+  width: 100%;
+  color: var(--neutral-white);
+  background: var(--primary-medium);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+.inp > input[type="text"][aria-invalid="true"],
+.inp > input[type="email"][aria-invalid="true"],
+.inp > textarea[aria-invalid="true"] {
+  border-color: var(--error-color);
+  background-color: var(--error-background);
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  display: none;
+  margin: 0px;
+}
+.inp > input[type="text"][aria-invalid="true"] + .error,
+.inp > input[type="email"][aria-invalid="true"] + .error,
+.inp > textarea[aria-invalid="true"] + .error {
+  display: block;
+}
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background: var(--neutral-grey-darker);
+  color: var(--neutral-grey-medium);
+  padding: 10px 13px;
+  border-radius: 10px;
+  position: fixed;
+  z-index: 1;
+  left: 70%;
+  top: 30px;
+  font-size: 17px;
+}
+.toastHeader {
+  display: inline-flex;
+  gap: 0.5rem;
+  color: var(--neutral-white);
+  font-size: 1rem;
+  margin-bottom: -10px;
+}
+.toast.show {
+  visibility: visible;
+  --webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+    form {
+        width: 80vw;
+        padding: 1rem;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    button {
+        padding: 8px;
+    }
+}
